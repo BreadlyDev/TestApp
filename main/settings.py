@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-33d0o^j@4pb51gk8lg@fz@=$2i64jcciq42p95c4r3ysrcw40=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['breaddev.pythonanywhere.com']
 CORS_ALLOWED_ORIGINS = []
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -39,12 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'drf_yasg',
     'users',
     'news',
     'corsheaders',
     'courses',
-    'questions',
     'tests',
+    'questions',
 ]
 
 MIDDLEWARE = [
@@ -141,6 +142,7 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
+# STATIC_ROOT = '/home/BreadDev/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = 'media/'
