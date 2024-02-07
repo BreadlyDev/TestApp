@@ -37,5 +37,6 @@ class Video(models.Model):
 class TestUser(models.Model):
     title = models.CharField(max_length=100)
     is_passed = models.BooleanField(default=False)
-
-
+    right_answers = models.PositiveIntegerField()
+    wrong_answers = models.PositiveIntegerField()
+    percentage = models.PositiveIntegerField()

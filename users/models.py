@@ -65,7 +65,7 @@ class Profile(models.Model):
         ('Женский', 'Женский'),
     )
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     language = models.CharField(max_length=50, choices=LANGUAGES)
     _class = models.CharField(max_length=4)
     age = models.PositiveIntegerField()
@@ -79,3 +79,6 @@ class Profile(models.Model):
         db_table = 'profile'
         verbose_name = 'Профиль'
         verbose_name_plural = 'Профили'
+
+    def __str__(self):
+        return f'{self.user.hello}'
