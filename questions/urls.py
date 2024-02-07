@@ -10,4 +10,5 @@ urlpatterns = [
     path('answer/create', views.AnswerCreateAPIView.as_view()),
     path('answer/all', views.AnswerListAPIView.as_view()),
     path('answer/<int:pk>', views.AnswerDetailAPIView.as_view()),
+    path('answer/question/<int:pk>', views.AnswersByQuestionAPIView.as_view()),
 ]
