@@ -40,4 +40,5 @@ urlpatterns = [
     path('api/v1/news/', include('news.urls')),
     path('api/v1/courses/', include('courses.urls')),
     path('api/v1/questions/', include('questions.urls')),
+    path('api/v1/tests/', include('tests.urls')),
 ]
