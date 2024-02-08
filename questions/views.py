@@ -29,7 +29,7 @@ class AnswerCreateAPIView(generics.CreateAPIView):
 
 
 class AnswerListAPIView(generics.ListAPIView):
-    serializer_class = s.QuestionSerializer
+    serializer_class = s.AnswerSerializer
 
     def get_queryset(self):
         question_id = self.kwargs.get('pk')
