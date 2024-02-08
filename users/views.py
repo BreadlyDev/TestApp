@@ -19,8 +19,7 @@ class RegisterAPIView(generics.CreateAPIView):
                 'message': 'Пользователь успешно зарегистрировался',
                 'access_token': str(AccessToken.for_user(user)),
                 'refresh_token': str(RefreshToken.for_user(user)),
-            },
-            status=status.HTTP_201_CREATED
+            }, status=status.HTTP_201_CREATED
         )
 
 
@@ -42,8 +41,7 @@ class LoginAPIView(views.APIView):
                 'message': 'Пользователь успешно вошел в систему',
                 'access_token': str(AccessToken.for_user(user)),
                 'refresh_token': str(RefreshToken.for_user(user)),
-            },
-            status=status.HTTP_200_OK
+            }, status=status.HTTP_200_OK
         )
 
 

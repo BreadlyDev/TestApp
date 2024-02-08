@@ -25,8 +25,12 @@ SECRET_KEY = 'django-insecure-33d0o^j@4pb51gk8lg@fz@=$2i64jcciq42p95c4r3ysrcw40=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['breaddev.pythonanywhere.com',
                  '127.0.0.1']
+=======
+ALLOWED_HOSTS = ['breaddev.pythonanywhere.com', '127.0.0.1']
+>>>>>>> 63e17e1f105b39f0f42d6dea52f17fcbcf2823d0
 CORS_ALLOWED_ORIGINS = []
 CORS_ORIGIN_ALLOW_ALL = True
 
