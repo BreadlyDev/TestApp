@@ -12,8 +12,8 @@ class QuestionListAPIView(generics.ListAPIView):
     serializer_class = s.QuestionSerializer
 
     def get_queryset(self):
-        question_id = self.kwargs.get('pk')
-        queryset = m.Question.objects.filter(question=question_id)
+        test_id = self.kwargs.get('pk')
+        queryset = m.Question.objects.filter(test=test_id)
         return queryset
 
 
