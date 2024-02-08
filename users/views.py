@@ -38,8 +38,8 @@ class LoginAPIView(views.APIView):
         return Response(
             {
                 'message': 'Пользователь успешно вошел в систему',
-            #     'access_token': str(AccessToken.for_user(user)),
-            #     'refresh_token': str(RefreshToken.for_user(user)),
+                'access_token': str(AccessToken.for_user(user)),
+                'refresh_token': str(RefreshToken.for_user(user)),
             }, status=status.HTTP_200_OK
         )
 

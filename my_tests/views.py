@@ -31,7 +31,7 @@ class TestUserCreateAPIView(generics.CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         data = self.request.data
-        data['user'] = self.request.user
+        data['user'] = self.request.user.id
 
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
@@ -39,7 +39,7 @@ class TestUserCreateAPIView(generics.CreateAPIView):
 
         return Response(
             {'message': 'Вы сдали тест'},
-            **serializer.validated_data,
+            **serializer.data,
             status=status.HTTP_200_OK
         )
 

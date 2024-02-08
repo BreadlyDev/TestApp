@@ -45,13 +45,8 @@ INSTALLED_APPS = [
     'news',
     'corsheaders',
     'courses',
-<<<<<<< HEAD
-    'tests',
-    'questions',
-=======
     'questions',
     'my_tests',
->>>>>>> 31d711533d7cce1ecaee041770751698dabf2a18
     'videos',
 ]
 

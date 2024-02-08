@@ -26,8 +26,8 @@ class TestUserSerializer(serializers.ModelSerializer):
         representation['user_name'] = f'{instance.user.firstname} {instance.user.lastname}'
         representation['test_name'] = f'{instance.test.title}'
 
-        questions_quantity = instance.questions.all().count()
-        representation['questions'] = questions_quantity
-        representation['percentage'] = f'{(instance.right_answers / questions_quantity):.2f}%'
+        # questions_quantity = instance.questions.all().count()
+        # representation['questions'] = questions_quantity
+        # representation['percentage'] = f'{(instance.right_answers / questions_quantity):.2f}%'
 
         return representation
