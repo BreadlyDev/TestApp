@@ -1,11 +1,12 @@
 from django.db import models
 
+from tests import models as m
 # from tests.models import Test
 
 
 class Question(models.Model):
     title = models.CharField(max_length=255)
-    test = models.ForeignKey('Test', on_delete=models.CASCADE, related_name='questions')
+    test = models.ForeignKey(m.Test, on_delete=models.CASCADE, related_name='questions')
 
     class Meta:
         db_table = 'questions'

@@ -1,8 +1,15 @@
 from django.urls import path
-from . import views
+from . import views as v
+
+# from tests import views as tv
+from tests.views import TestListAPIView
+from videos import views as vv
 
 urlpatterns = [
-    path('create', views.CourseCreateAPIView.as_view()),
-    path('all', views.CourseListAPIView.as_view()),
-    path('<int:pk>', views.CourseDetailAPIView.as_view()),
+    path('create', v.CourseCreateAPIView.as_view()),
+    path('all', v.CourseListAPIView.as_view()),
+    path('<int:pk>', v.CourseDetailAPIView.as_view()),
+
+    path('<int:pk>/test/all', TestListAPIView.as_view()),
+    path('<int:pk>/video/all', vv.VideoListAPIView.as_view()),
 ]

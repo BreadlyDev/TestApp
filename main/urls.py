@@ -41,6 +41,7 @@ urlpatterns = [
     path('api/v1/news/', include('news.urls')),
     path('api/v1/courses/', include('courses.urls')),
     path('api/v1/tests/', include('tests.urls')),
+    path('api/v1/videos/', include('videos.urls')),
     path('api/v1/questions/', include('questions.urls')),
     path('swagger<str:format>', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
