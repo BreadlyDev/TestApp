@@ -1,7 +1,11 @@
 from django.db import models
 
+<<<<<<< HEAD
 from tests import models as m
 # from tests.models import Test
+=======
+from my_tests import models as m
+>>>>>>> 31d711533d7cce1ecaee041770751698dabf2a18
 
 
 class Question(models.Model):

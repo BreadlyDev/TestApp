@@ -1,8 +1,12 @@
 from django.urls import path
 from . import views as v
 
+<<<<<<< HEAD
 # from tests import views as tv
 from tests.views import TestListAPIView
+=======
+from my_tests import views as tv
+>>>>>>> 31d711533d7cce1ecaee041770751698dabf2a18
 from videos import views as vv
 
 urlpatterns = [

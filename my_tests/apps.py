@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class TestsConfig(AppConfig):
+class MyTestsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'tests'
+    name = 'my_tests'

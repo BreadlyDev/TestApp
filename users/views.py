@@ -10,7 +10,7 @@ class RegisterAPIView(generics.CreateAPIView):
     serializer_class = s.RegisterSerializer
 
     def post(self, request, *args, **kwargs):
-        serializer = self.get_serializer(request.data)
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
 
@@ -25,7 +25,6 @@ class RegisterAPIView(generics.CreateAPIView):
 
 class LoginAPIView(views.APIView):
     queryset = m.User.objects.all()
-    serializer_class = s.LoginSerializer
 
     def post(self, request):
         user = m.User.objects.filter(email=request.data.get('email')).first()

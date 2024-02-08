@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from tests import models as m
+from my_tests import models as m
 
 
 class TestSerializer(serializers.ModelSerializer):
