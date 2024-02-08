@@ -26,20 +26,33 @@ class TestDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class TestUserCreateAPIView(generics.CreateAPIView):
+    queryset = m.TestUser.objects.all()
     serializer_class = s.TestUserSerializer
     permission_classes = [up.IsStudent]
 
     def post(self, request, *args, **kwargs):
-        data = self.request.data
-        data['user'] = self.request.user
+        data = request.data
+        data['user'] = request.user.id
+
+        r_answers = data['right_answers']
+        test = m.Test.objects.filter(pk=data['test']).first()
+        questions = test.questions.count()
+
+        if self.queryset.filter(user=request.user.id, test=data['test']).exists():
+            return Response({'message': 'Вы уже проходили этот тест'})
+
+        if r_answers > questions:
+            return Response({'message': 'Произошла ошибка'})
 
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
         return Response(
-            {'message': 'Вы сдали тест'},
-            **serializer.validated_data,
+            {
+                'message': 'Вы сдали тест',
+                **serializer.data,
+             },
             status=status.HTTP_200_OK
         )
 
