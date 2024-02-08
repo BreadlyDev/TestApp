@@ -3,6 +3,7 @@ from django.db import models
 
 from courses.models import Course
 from main.settings import TEST_VIDEO_FOLDER
+from users.models import User
 
 
 class Test(models.Model):
@@ -35,8 +36,12 @@ class Video(models.Model):
 
 
 class TestUser(models.Model):
-    title = models.CharField(max_length=100)
+    test = models.ForeignKey(Test, on_delete=models.CASCADE, related_name='users')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tests')
     is_passed = models.BooleanField(default=False)
     right_answers = models.PositiveIntegerField()
-    wrong_answers = models.PositiveIntegerField()
-    percentage = models.PositiveIntegerField()
+
+    class Meta:
+        db_table = 'test_user'
+        verbose_name = 'Пройденный тест'
+        verbose_name_plural = 'Пройденные тесты'
