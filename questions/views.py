@@ -9,8 +9,12 @@ class QuestionCreateAPIView(generics.CreateAPIView):
 
 
 class QuestionListAPIView(generics.ListAPIView):
-    queryset = m.Question.objects.all()
     serializer_class = s.QuestionSerializer
+
+    def get_queryset(self):
+        question_id = self.kwargs.get('pk')
+        queryset = m.Question.objects.filter(question=question_id)
+        return queryset
 
 
 class QuestionDetailAPIView(generics.RetrieveUpdateDestroyAPIView):

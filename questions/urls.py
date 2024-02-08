@@ -8,6 +8,5 @@ urlpatterns = [
     path('<int:pk>/answer/all', v.AnswerListAPIView.as_view()),
 
     path('answer/create', v.AnswerCreateAPIView.as_view()),
-    path('answer/all', v.AnswerListAPIView.as_view()),
     path('answer/<int:pk>', v.AnswerDetailAPIView.as_view()),
 ]

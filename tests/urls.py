@@ -13,8 +13,4 @@ urlpatterns = [
     path('submit', v.TestUserCreateAPIView.as_view()),
     path('all/result', v.TestUserListAPIView.as_view()),
     path('<int:pk>/result', v.TestUserDetailAPIView.as_view()),
-
-    path('video/create', v.VideoCreateAPIView.as_view()),
-    path('video/all', v.VideoListAPIView.as_view()),
-    path('video/<int:pk>', v.VideoDetailAPIView.as_view()),
 ]
