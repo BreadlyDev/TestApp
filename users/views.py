@@ -14,11 +14,14 @@ class RegisterAPIView(generics.CreateAPIView):
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
 
+        access_token = str(AccessToken.for_user(user))
+        refresh_token = str(RefreshToken.for_user(user))
+
         return Response(
             {
                 'message': 'Пользователь успешно зарегистрировался',
-                'access_token': AccessToken.for_user(user),
-                'refresh_token': RefreshToken.for_user(user),
+                'access_token': access_token,
+                'refresh_token': refresh_token,
             },
             status=status.HTTP_201_CREATED
         )
@@ -36,12 +39,13 @@ class LoginAPIView(views.APIView):
                 {'message': 'Неверный пароль'},
                 status=status.HTTP_400_BAD_REQUEST
             )
-
+        access_token = str(AccessToken.for_user(user))
+        refresh_token = str(RefreshToken.for_user(user))
         return Response(
             {
                 'message': 'Пользователь успешно вошел в систему',
-                'access_token': AccessToken.for_user(user),
-                'refresh_token': RefreshToken.for_user(user),
+                'access_token': access_token,
+                'refresh_token': refresh_token,
             },
             status=status.HTTP_200_OK
         )
