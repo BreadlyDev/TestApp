@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from my_tests import models as m
+from my_tests.models import TestUser
 
 
 class TestSerializer(serializers.ModelSerializer):
@@ -18,7 +19,7 @@ class TestSerializer(serializers.ModelSerializer):
 class TestUserSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = m.TestUser
+        model = TestUser
         fields = '__all__'
 
     def to_representation(self, instance):
@@ -26,8 +27,8 @@ class TestUserSerializer(serializers.ModelSerializer):
         representation['user_name'] = f'{instance.user.firstname} {instance.user.lastname}'
         representation['test_name'] = f'{instance.test.title}'
 
-        # questions_quantity = instance.questions.all().count()
-        # representation['questions'] = questions_quantity
-        # representation['percentage'] = f'{(instance.right_answers / questions_quantity):.2f}%'
+        questions_quantity = instance.test.questions.count()
+        representation['questions'] = questions_quantity
+        representation['percentage'] = f'{(instance.right_answers / questions_quantity) * 100:.2f}%'
 
         return representation

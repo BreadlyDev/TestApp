@@ -2,6 +2,8 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+from . import validators as val
+
 
 class MyUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -67,10 +69,10 @@ class Profile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     language = models.CharField(max_length=50, choices=LANGUAGES)
-    _class = models.CharField(max_length=4)
+    _class = models.CharField(max_length=4, validators=[val.validate_class])
     age = models.PositiveIntegerField()
     sex = models.CharField(max_length=50, choices=SEX)
-    phone = models.CharField(max_length=20)
+    phone = models.CharField(max_length=20, validators=[val.validate_phone])
     school = models.CharField(max_length=100)
     university = models.CharField(max_length=100)
     specialization = models.CharField(max_length=100)
@@ -81,4 +83,4 @@ class Profile(models.Model):
         verbose_name_plural = 'Профили'
 
     def __str__(self):
-        return f'{self.user.hello}'
+        return f'Профиль студента {self.user.lastname} {self.user.firstname}'
