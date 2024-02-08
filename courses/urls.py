@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views as v
 
-from tests import views as tv
+from my_tests import views as tv
 from videos import views as vv
 
 urlpatterns = [

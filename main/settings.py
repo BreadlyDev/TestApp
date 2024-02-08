@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'courses',
     'questions',
-    'tests',
+    'my_tests',
     'videos',
 ]
 
