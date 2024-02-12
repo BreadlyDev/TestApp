@@ -39,10 +39,16 @@ class TestUserCreateAPIView(generics.CreateAPIView):
         questions = test.questions.count()
 
         if self.queryset.filter(user=request.user.id, test=data['test']).exists():
-            return Response({'message': 'Вы уже проходили этот тест'})
+            return Response(
+                {'message': 'Вы уже проходили этот тест'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         if r_answers > questions:
-            return Response({'message': 'Произошла ошибка'})
+            return Response(
+                {'message': 'Количество ответов не может быть больше количества вопросов'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
@@ -57,10 +63,19 @@ class TestUserCreateAPIView(generics.CreateAPIView):
 
 
 class TestUserListAPIView(generics.ListAPIView):
+    queryset = m.TestUser.objects.all()
     serializer_class = s.TestUserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+    def get_queryset(self):
+        user = self.request.user
+
+        if user.role == 'Учитель':
+            return self.queryset
+
+        return self.queryset.filter(user=user)
 
 class TestUserDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = m.TestUser.objects.all()
     serializer_class = s.TestUserSerializer
     permission_classes = [permissions.IsAuthenticated]

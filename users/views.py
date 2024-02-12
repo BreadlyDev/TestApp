@@ -25,6 +25,7 @@ class RegisterAPIView(generics.CreateAPIView):
 
 class LoginAPIView(generics.CreateAPIView):
     queryset = m.User.objects.all()
+    serializer_class = s.RegisterSerializer
 
     def post(self, request, *args, **kwargs):
         user = m.User.objects.filter(email=request.data.get('email')).first()
