@@ -42,13 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'drf_yasg',
     'rest_framework',
-    'users',
-    'news',
     'corsheaders',
-    'courses',
-    'questions',
-    'my_tests',
-    'videos',
+    'main_page',
 ]
 
 MIDDLEWARE = [
@@ -67,7 +62,7 @@ ROOT_URLCONF = 'main.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,7 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'main.wsgi.application'
 
-AUTH_USER_MODEL = "users.User"
+AUTH_USER_MODEL = 'main_page.User'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -93,22 +88,22 @@ DATABASES = {
     }
 }
 
-REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
-}
+# REST_FRAMEWORK = {
+#     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
+#     "DEFAULT_AUTHENTICATION_CLASSES": (
+#         "rest_framework_simplejwt.authentication.JWTAuthentication",
+#     ),
+# }
 
-SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),
-    "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
-    "SLIDING_TOKEN_LIFETIME": timedelta(days=1),
-    "SLIDING_TOKEN_REFRESH_LIFETIME_GRACE_PERIOD": timedelta(days=2),
-    "SLIDING_TOKEN_REFRESH_AFTER_INACTIVITY": timedelta(hours=1),
-    "SLIDING_TOKEN_REFRESH_SLIDING_TYPE": "relative",
-    "SLIDING_TOKEN_REFRESHES": False,
-}
+# SIMPLE_JWT = {
+#     "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),
+#     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
+#     "SLIDING_TOKEN_LIFETIME": timedelta(days=1),
+#     "SLIDING_TOKEN_REFRESH_LIFETIME_GRACE_PERIOD": timedelta(days=2),
+#     "SLIDING_TOKEN_REFRESH_AFTER_INACTIVITY": timedelta(hours=1),
+#     "SLIDING_TOKEN_REFRESH_SLIDING_TYPE": "relative",
+#     "SLIDING_TOKEN_REFRESHES": False,
+# }
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -133,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bishkek'
 
 USE_I18N = True
 
@@ -145,11 +140,10 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
-# STATIC_ROOT = '/home/BreadDev/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media/'
 
 NEWS_IMAGE_FOLDER = 'news/images'
 TEST_VIDEO_FOLDER = 'tests/videos'

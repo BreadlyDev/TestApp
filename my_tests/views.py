@@ -75,6 +75,7 @@ class TestUserListAPIView(generics.ListAPIView):
 
         return self.queryset.filter(user=user)
 
+
 class TestUserDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = m.TestUser.objects.all()
     serializer_class = s.TestUserSerializer

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORT Courses</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Manjari:100,regular,700" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/course.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="../index.html" class="logo header__logo">
+                    <img src="{% static 'images/logo.png' %}" alt="logo" class="logo__img">
+                </a>
+                <nav class="navbar header__navbar">
+                    <ul class="navbar__list">
+                        <il class="navbar__item active">
+                            <a href="#" class="navbar__link">Курсы</a>
+                        </il>
+                        <il class="navbar__item">
+                            <a href="#" class="navbar__link">Ф.И.О</a>
+                        </il>
+                        <il class="navbar__item login">
+                            <a href="./login.htmp" class="navbar__link">Вход</a>
+                        </il>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="courses">
+        <div class="container">
+            <button class="add">+</button>
+            <ul class="courses__list">
+                <li class="courses__item course">
+                    <div class="course__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="course background" class="course__im">
+                    </div>
+                    <div class="course__info">
+                        <h3 class="course__name">Title</h3>
+                        <p class="course__desc">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, explicabo nostrum ducimus fuga accusamus magni.
+                        </p>
+                        <div class="course__links">
+                            <a href="#" class="course__link">Update</a>
+                            <a href="#" class="course__link">Delete</a>
+                            <a href="./tests.html" class="course__link">Result</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="courses__item course">
+                    <div class="course__img-wrapper">
+                        <img src="https://img.freepik.com/premium-photo/innovative-learning-creative-educational-study-concept-graduation-school-student-success-wi_756748-16540.jpg" alt="course background" class="course__im">
+                    </div>
+                    <div class="course__info">
+                        <h3 class="course__name">Title</h3>
+                        <p class="course__desc">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, explicabo nostrum ducimus fuga accusamus magni.
+                        </p>
+                        <div class="course__links">
+                            <a href="#" class="course__link">Update</a>
+                            <a href="#" class="course__link">Delete</a>
+                            <a href="#" class="course__link">Result</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="courses__item course">
+                    <div class="course__img-wrapper">
+                        <img src="https://asu2learn.asu.edu.eg/educationPG/pluginfile.php/100897/mod_page/content/38/prog-1.jpg?time=1663760910515" alt="course background" class="course__im">
+                    </div>
+                    <div class="course__info">
+                        <h3 class="course__name">Title</h3>
+                        <p class="course__desc">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, explicabo nostrum ducimus fuga accusamus magni.
+                        </p>
+                        <div class="course__links">
+                            <a href="#" class="course__link">Update</a>
+                            <a href="#" class="course__link">Delete</a>
+                            <a href="#" class="course__link">Result</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="footer">
+        
+    </footer>
+</body>
+</html>
