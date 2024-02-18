@@ -1,0 +1,126 @@
+body{
+    background-color: #fff;
+    color: #090909;
+    font-family: "Manjari", sans-serif;
+}
+
+.container{
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header{
+    &__inner{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+    }
+}
+
+.navbar{
+    &__item{
+        margin: 0 20px;
+        padding: 10px 20px;
+        
+        &:hover{
+            border-bottom: 5px solid #C784C8;
+        }
+
+        &.login{
+            background-color: #C784C8;
+            border-radius: 25px;
+            .navbar__link{
+                color: #fff;
+            }
+            &:hover{
+                border: none;
+            }
+        }
+    }
+    &__link{
+        color: #090909;
+        font-size: 16px;
+        line-height: 120%;
+        font-weight: 700;
+    }
+}
+
+.content{
+    padding: 100px 0;
+
+    &__title{
+        font-size: 64px;
+        line-height: 120%;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+    &__details{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__detail{
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 120%;
+    }
+
+    &__lesson{
+        margin-top: 60px;
+
+        &-video{
+            max-width: 700px;
+            height: 500px;
+            border-radius: 30px;
+            margin-bottom: 30px;
+        }
+        &-title{
+            font-size: 20px;
+            line-height: 120%;
+        }
+        &-text{
+            font-size: 15px;
+            line-height: 120%;
+        }
+    }
+
+    &__test{
+        margin-top: 60px;
+
+        &-link{
+            display: block;
+            border-radius: 30px;
+            max-width: 700px;
+            height: 200px;
+            color: #090909;
+            font-size: 20px;
+            line-height: 120%;
+            text-align: center;
+            background-color: #D9D9D9;
+            font-weight: 700;
+            padding: 90px 0;
+            margin-bottom: 30px;
+            transition: 0.5s ease;
+
+            &:hover{
+                background-color: #C784C8;
+            }
+        }
+        &-title{
+            font-size: 20px;
+            line-height: 120%;
+        }
+        &-text{
+            font-size: 15px;
+            line-height: 120%;
+        }
+    }
+}
+
+.footer{
+    background-color: #D9D9D9;
+    height: 285px;
+    border-radius: 20px 20px 0 0;
+}
