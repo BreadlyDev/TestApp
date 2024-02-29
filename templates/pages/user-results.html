@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+
+<main class="content">
+    <div class="container">
+        <h1>User Answers</h1>
+
+        <table border="1">
+            <thead>
+            <tr>
+                <th>Test Title</th>
+                <th>Right Answers</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user_test in user_tests %}
+                <tr>
+                    <td>{{ user_test.test.title }}</td>
+                    <td>{{ user_test.right_answers }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock %}

@@ -9,7 +9,8 @@ urlpatterns = [
     path('', v.main_view, name='home'),
     path('course/<int:pk>', v.course_view, name='course'),
     path('test/<int:pk>', v.test_view, name='test'),
-    path('login', v.login, name='login'),
+    path('login', v.login_view, name='login'),
+    path('profile', v.profile, name='profile'),
 ]
 
 if DEBUG:

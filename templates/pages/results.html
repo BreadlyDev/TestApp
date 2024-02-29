@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+
+<main class="content">
+    <div class="container">
+        <h1>User Tests</h1>
+
+        <table border="1">
+            <thead>
+            <tr>
+                <th>Test Title</th>
+                <th>User</th>
+                <th>Right Answers</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user_test in user_tests %}
+                <tr>
+                    <td>{{ user_test.test.title }}</td>
+                    <td>{{ user_test.user.firstname }} {{ user_test.user.lastname }}</td>
+                    <td>{{ user_test.right_answers }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock %}

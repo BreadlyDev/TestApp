@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <main class="tests">
+        <div class="container">
+            <h1>User Profile</h1>
+
+            <ul>
+                <li><strong>User:</strong> {{ user_profile.user.firstname }} {{ user_profile.user.lastname }}</li>
+                <li><strong>Language:</strong> {{ user_profile.language }}</li>
+{#                <li><strong>Class:</strong> {{ user_profile. }}</li>#}
+                <li><strong>Age:</strong> {{ user_profile.age }}</li>
+                <li><strong>Sex:</strong> {{ user_profile.sex }}</li>
+                <li><strong>Phone:</strong> {{ user_profile.phone }}</li>
+                <li><strong>School:</strong> {{ user_profile.school }}</li>
+                <li><strong>University:</strong> {{ user_profile.university }}</li>
+                <li><strong>Specialization:</strong> {{ user_profile.specialization }}</li>
+            </ul>
+        </div>
+    </main>
+
+{% endblock %}

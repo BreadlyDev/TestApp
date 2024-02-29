@@ -1,6 +1,6 @@
 import time
 
-from django.contrib.auth import logout, authenticate
+from django.contrib.auth import logout, authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
@@ -44,22 +44,21 @@ def register(request):
     pass
 
 
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         email = request.POST['email']
-        password = request.POST['email']
+        password = request.POST['password']
 
-        user = authenticate(email=email, password=password)
-
-        print(user)
+        user = authenticate(request, email=email, password=password)
 
         if user:
-            login(request, user)
-            return redirect('course/1')
+            auth_login(request, user)
+            return redirect('home')  # Adjust the URL name as needed
     else:
         return render(request, 'pages/login.html')
 
 
-
-
+def profile(request):
+    user_profile = m.Profile.objects.get(user=request.user)
+    return render(request, 'pages/profile.html', {'user_profile': user_profile})
 
